@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants">
+<CheckBox
+    android:id="@+id/thread_check"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:visibility="gone"
+    android:focusable="false"
+    />
+<ImageView
+    android:id="@+id/thread_image"
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:src="@drawable/ic_service_32dp"
+    />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/process_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/package_name"
+            android:layout_marginLeft="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

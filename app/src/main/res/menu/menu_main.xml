@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="youmo.threadkiller.MainActivity" >
+    <item android:id="@+id/action_settings"
+        android:title="REC视图"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_write"
+        android:title="写入白名单"
+        android:orderInCategory="80"
+        android:icon="@drawable/menu_add_32dp"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_edit"
+        android:title="编辑"
+        android:orderInCategory="80"
+        android:icon="@drawable/menu_delete_32dp"
+        app:showAsAction="ifRoom" />
+
+</menu>
