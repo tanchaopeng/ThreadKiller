@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -135,6 +136,11 @@ public class ThreadHelper extends AsyncTask<Object,Integer,String>{
         List<String> LPackageName=(List<String>)params[0];
         KillThread(LPackageName);
         return null;
+    }
+
+    @Override
+    protected void onPostExecute(String s) {
+        Toast.makeText(context, "完成", Toast.LENGTH_SHORT).show();
     }
 
     public class PackagesInfo {

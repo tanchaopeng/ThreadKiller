@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
     ThreadAdapter ta;
     ListView lv;
     Boolean IsListSelect=false;
+    List<ProcessModel> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         }
         lv=(ListView)findViewById(R.id.DataList);
         th =new ThreadHelper(this);
-        List<ProcessModel> data;
+
         if (Build.VERSION.SDK_INT<21)
             data=th.OnlyOneProcess(th.getRunningProcess());
         else
@@ -86,7 +87,6 @@ public class MainActivity extends AppCompatActivity {
                 if (!IsListSelect)
                 {
                     ProcessModel p= ta.getItem(position);
-                    Toast.makeText(getApplicationContext(),p.processName,Toast.LENGTH_SHORT).show();
                     new ThreadHelper(getApplicationContext()).execute(new ArrayList<String>(Arrays.asList(p.processName)));
                     ta.remove(p);
                     ta.notifyDataSetChanged();
@@ -110,9 +110,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void Click_1(View v)
     {
-        Intent intent=new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        startActivity(intent);
-        //Toast.makeText(this, getForegroundApp(), Toast.LENGTH_SHORT).show();
+        List<String> list=new ArrayList<String>();
+        for (ProcessModel p:data)
+        {
+            list.add(p.processName);
+        }
+        new ThreadHelper(getApplicationContext()).execute(list);
     }
     public void Click_2(View v)
     {
@@ -214,6 +217,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_settings) {
             startActivity(new Intent(this,RecyclerActivity.class));
+            return true;
+        }
+        if (id == R.id.action_power_settings) {
+            startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS));
             return true;
         }
         //noinspection SimplifiableIfStatement

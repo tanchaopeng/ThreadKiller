@@ -6,6 +6,10 @@
         android:title="REC视图"
         android:orderInCategory="100"
         app:showAsAction="never" />
+    <item android:id="@+id/action_power_settings"
+        android:title="权限设置"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
     <item android:id="@+id/action_write"
         android:title="写入白名单"
         android:orderInCategory="80"
